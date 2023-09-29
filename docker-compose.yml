@@ -1,0 +1,15 @@
+# docker-compose.yml
+services:
+  app:
+    build: ./e-commerce
+    volumes:
+      - ./e-commerce:/e-commerce
+    depends_on:
+      - mongo
+      
+  mongo:
+    image: mongo:6.0
+    volumes:
+      - ./datos:/data/db
+    ports:
+      - 27017:27017
